@@ -1,0 +1,8 @@
+# Всегда LF, даже при клоне на Windows: .env с переводами строк CRLF ломает бота в Docker
+# (в значение BOT_TOKEN попадает «\r»), а контейнер работает на Linux.
+* text=auto eol=lf
+
+*.jpg binary
+*.png binary
+*.mp4 binary
+*.gif binary

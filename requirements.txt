@@ -1,0 +1,5 @@
+aiogram==3.31.0
+aiosqlite==0.22.1
+emoji==2.16.0
+PyYAML==6.0.3
+tzdata==2026.4

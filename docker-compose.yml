@@ -1,0 +1,23 @@
+services:
+  bot:
+    build: .
+    image: epidemic-bot:latest
+    container_name: epidemic-bot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DB_PATH: /app/data/epidemic.sqlite3
+      MEDIA_DIR: /app/media
+    volumes:
+      # База, резервные копии и heartbeat. Том переживает пересборку и обновления.
+      - epidemic_data:/app/data
+      # Картинки обучения (tutorial_begin.jpg, tutorial_end.jpg, tutorial_end.mp4).
+      - ./media:/app/media:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  epidemic_data:
